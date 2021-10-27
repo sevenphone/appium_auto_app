@@ -1,0 +1,10 @@
+*.png
+*.html
+*.log
+*.iml
+/report/*
+/result/*
+/screen/*
+/logs/*
+.idea/*
+/testcases/.pytest_cache

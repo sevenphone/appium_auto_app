@@ -1,0 +1,11 @@
+# ！！！ 注意port最大为4819 ！！！
+
+- desc: 逍遥模拟器
+  port: 4725
+  desired_caps:
+    udid: 127.0.0.1:21503
+    platformName: Android
+    platformVersion: 7.1.2
+    appPackage: com.youdao.note
+    appActivity: com.youdao.note.activity2.MainActivity
+    noReset: False
