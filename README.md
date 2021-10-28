@@ -36,9 +36,9 @@ pytest+appium 安卓自动化项目
 
 ### 三、安装教程
 1. `pip install -r requirements.txt`
-2. 给`appium`的安装路径配置环境变量,  
-   如`APPIUM_HOME = 'C:\Users\XX\AppData\Local\Programs\Appium\resources\app\node_modules\appium\lib'`,  
-   注意`android sdk`的环境变量名要配置为`ANDROID_HOME`
+2. 在`utils\appium_util.py`第17行，编辑修改为本机的appium路径。  
+   注意最后是`appium\build\lib`结尾的。  
+~~给`appium`的安装路径配置环境变量,如`APPIUM_HOME = 'C:\Users\XX\AppData\Local\Programs\Appium\resources\app\node_modules\appium\lib'`,注意`android sdk`的环境变量名要配置为`ANDROID_HOME`。~~  
 3. `config\devices.yaml`添加自己的设备,  
    `testcases\conftest.py`中会根据devices.yaml来启动设备,返回driver_list,测试用例里传入driver来控制操作对应设备  
 4. `config\env.py`是存储环境变量的文件，如账号密码等，可酌情使用  
@@ -53,4 +53,4 @@ pytest+appium 安卓自动化项目
 5.2 测试用例的类用Test开头,测试类中不应该有构造函数  
 5.3 测试用例中的方法用test_开头  
 6. `testcases\conftest.py`只提供调起driver等非业务的公共方法，如果是业务的公共操作如登录，
-   建议在`testcases`子目录下新增`conftest.py`，如`testcases\test_sd\conftest.py`里就是声洞的登录操作  
+   建议在`testcases`业务子目录下新增`conftest.py`  

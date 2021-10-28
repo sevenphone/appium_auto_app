@@ -12,10 +12,11 @@ class AppiumServer:
             is_port_used = os.popen(f'netstat -ano | findstr {port}').read()
             if 'LISTENING' not in is_port_used:
                 logging.info(f"端口{port}未被占用，开始启动appium服务")
-                # os.system(r'start /b node %APPIUM_HOME%\main.js -p={port} -bp={bp} -U={udid}'
-                #           .format(port=port, bp=(port - 2000), udid=device_name))  # Bootstrap是基于UiAutomator1的
-                os.system(r'start /b node %APPIUM_HOME%\main.js -p={port} -U={udid}'
-                          .format(port=port, udid=device_name))
+                # os.system(r'start /b node %APPIUM_HOME%\main.js -p={port} -U={udid}'
+                #           .format(port=port, udid=device_name))
+                os.chdir(r'C:\Users\XX\AppData\Local\Programs\Appium\resources\app\node_modules\appium\build\lib')
+                # ⬆切换至本机appium，路径请自行修改
+                os.system(f'start /b node main.js -p={port} -U={device_name}')  # 启动appium
             else:
                 logging.info(f"端口{port}已被占用，视为appium服务已启动")
 
